@@ -1,7 +1,7 @@
 # Project Test
-cd /home/alex/Documents/Git
+$cd /home/alex/Documents/Git
 
-git pull
+$git pull
 
 
 Initio -> Server:
