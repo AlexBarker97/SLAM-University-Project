@@ -9,10 +9,10 @@ try:
         if keyp == 'w' or ord(keyp) == 16:
             initio.forward(speed)
             print ('Forward', speed)
-        elif keyp == 'z' or ord(keyp) == 17:
+        elif keyp == 's' or ord(keyp) == 17:
             initio.reverse(speed)
             print ('Reverse', speed)
-        elif keyp == 's' or ord(keyp) == 18:
+        elif keyp == 'd' or ord(keyp) == 18:
             initio.spinRight(speed)
             print ('Spin Right', speed)
         elif keyp == 'a' or ord(keyp) == 19:
