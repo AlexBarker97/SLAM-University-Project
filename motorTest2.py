@@ -5,7 +5,7 @@ initio.init()
 
 try:
     while True:
-        keyp=input("'w','z','s','a','>','<',' ':")
+        keyp=input("'w','s','a','d','>','<',' ':")
         if keyp == 'w' or ord(keyp) == 16:
             initio.forward(speed)
             print ('Forward', speed)
@@ -27,9 +27,12 @@ try:
         elif keyp == ' ':
             initio.stop()
             print ('Stop')
-        elif ord(keyp) == 3:
+        elif keyp == "quit":
             break
-
+        else:
+            print("invalid input")            
+            print("note: 'quit' to quit")
+            
 except KeyboardInterrupt:
     print()
 
