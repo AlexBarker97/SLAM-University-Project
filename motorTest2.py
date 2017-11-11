@@ -1,6 +1,6 @@
 import initio, time
 
-speed = 30
+speed = 50
 initio.init()
 
 try:
