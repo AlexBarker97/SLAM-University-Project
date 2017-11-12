@@ -32,7 +32,7 @@ gpio.setup(pan, gpio.OUT)
 
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(61)
-
+duty = 61
 
 try:
     while True:
