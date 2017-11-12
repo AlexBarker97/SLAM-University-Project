@@ -66,13 +66,13 @@ try:
 #            pVal = min(90, pVal+10)
 #            doServos()
             print ("Up (unused)")
-        elif key == 'a':
+        elif key == 'd':
 #            tVal = max (-90, tVal-10)
 #            doServos()
             duty -= 5
             print ("Left", duty)
             p.ChangeDutyCycle(duty)
-        elif key == 'd':
+        elif key == 'a':
 #            tVal = min(90, tVal+10)
 #            doServos()
             duty += 5
