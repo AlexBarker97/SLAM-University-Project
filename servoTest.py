@@ -8,8 +8,7 @@ L1 = 19
 L2 = 21
 R1 = 24
 R2 = 26
-
-pan = 22
+pan = 0
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(L1, gpio.OUT)
@@ -17,7 +16,6 @@ gpio.setup(L2, gpio.OUT)
 gpio.setup(R1, gpio.OUT)
 gpio.setup(R2, gpio.OUT)
 gpio.setup(pan, gpio.OUT)
-
 
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(50) # start it at 50% - should be centre of servo
