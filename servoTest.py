@@ -34,7 +34,7 @@ t.start(61)
 tilt = 61
 duty = 61
 
-try:
+#try:
     while True:
         key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
         if key == ' ':
@@ -89,7 +89,7 @@ try:
             break
         else:
             print("incorrect input")
-except KeyboardInterrupt:
-    print("")
-finally:
+#except KeyboardInterrupt:
+#    print("")
+#finally:
     initio.cleanup()
