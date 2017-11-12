@@ -42,26 +42,26 @@ try:
 #            tVal = 0
 #            pVal = 0
 #            doServos()
-            duty = 50
+            duty = 61
             p.ChangeDutyCycle(duty)
 #            print ("Centre", tVal, pVal)
-            print ("Centre: 50")
+            print ("Centre: 61")
         elif key.upper() == 'R':
 #            tVal = -90
 #            pVal = -90
 #            doServos()
-            duty = 0
+            duty = 25
             p.ChangeDutyCycle(duty)
 #            print ("Right", tVal, pVal)
-            print ("Right: 25")
+            print ("Right 25")
         elif key.upper() == 'L':
 #            tVal = 90
 #            pVal = 90
 #            doServos()
-            duty = 100
+            duty = 90
             p.ChangeDutyCycle(duty)
 #            print ("Left", tVal, pVal)
-            print ("Left: 75")
+            print ("Left 90")
         elif key == 'w':
 #            pVal = min(90, pVal+10)
 #            doServos()
