@@ -66,6 +66,7 @@ try:
 #            doServos()
             tilt += 5
             print ("Up", tilt)
+            t.ChangeDutyCycle(tilt)
         elif key == 'd':
 #            tVal = max (-90, tVal-10)
 #            doServos()
@@ -83,6 +84,7 @@ try:
 #            doServos()
             tilt -= 5
             print ("Down", tilt)
+            t.ChangeDutyCycle(tilt)
         elif key == 'quit':
             break
         else:
