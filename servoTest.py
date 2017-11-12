@@ -50,7 +50,7 @@ try:
 #            tVal = -90
 #            pVal = -90
 #            doServos()
-            duty = 25
+            duty = 0
             p.ChangeDutyCycle(duty)
 #            print ("Right", tVal, pVal)
             print ("Right: 25")
@@ -58,7 +58,7 @@ try:
 #            tVal = 90
 #            pVal = 90
 #            doServos()
-            duty = 75
+            duty = 100
             p.ChangeDutyCycle(duty)
 #            print ("Left", tVal, pVal)
             print ("Left: 75")
@@ -70,13 +70,13 @@ try:
 #            tVal = max (-90, tVal-10)
 #            doServos()
             duty -= 5
-            print ("Left", duty)
+            print ("Right", duty)
             p.ChangeDutyCycle(duty)
         elif key == 'a':
 #            tVal = min(90, tVal+10)
 #            doServos()
             duty += 5
-            print ("Right", duty)
+            print ("Left", duty)
             p.ChangeDutyCycle(duty)
         elif key == 's':
 #            pVal = max(-90, pVal-10)
