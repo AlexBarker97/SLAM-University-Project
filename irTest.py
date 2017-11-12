@@ -13,7 +13,7 @@ try:
     while True:
         newL = initio.irLeft()
         newR = initio.irRight()
-        print ('Left: ', newL, 'Right: ', newR)
+        print ('Left: ', newL, '  Right: ', newR)
 #        newLineL = initio.irLeftLine()
 #        newLineR = initio.irRightLine()
 #        if (newL != lastL) or (newR != lastR) or (newLineL != lastLineL) or (newLineR != lastLineR):
