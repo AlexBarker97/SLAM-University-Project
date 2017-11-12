@@ -37,7 +37,6 @@ p.start(50) # start it at 50% - should be centre of servo
 # main loop
 try:
     while True:
-        print ("Use Arrows or W-Up, Z-Down, A-Left, S-Right Space=Centre, ^C=Exit:")
         key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, ^C=Exit,'L','R'")
         if key == ' ':
 #            tVal = 0
