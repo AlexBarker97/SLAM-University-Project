@@ -32,9 +32,9 @@ gpio.setup(pan, gpio.OUT)
 
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(50) # start it at 50% - should be centre of servo
-#p.ChangeDutyCycle(100)
 
-# main loop
+duty = 50
+
 try:
     while True:
         key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, ^C=Exit,'L','R'")
@@ -42,21 +42,24 @@ try:
 #            tVal = 0
 #            pVal = 0
 #            doServos()
-            p.ChangeDutyCycle(50)
+            duty = 50
+            p.ChangeDutyCycle(duty)
 #            print ("Centre", tVal, pVal)
             print ("Centre: 50")
         elif key.upper() == 'R':
 #            tVal = -90
 #            pVal = -90
 #            doServos()
-            p.ChangeDutyCycle(25)
+            duty = 25
+            p.ChangeDutyCycle(duty)
 #            print ("Right", tVal, pVal)
             print ("Right: 25")
         elif key.upper() == 'L':
 #            tVal = 90
 #            pVal = 90
 #            doServos()
-            p.ChangeDutyCycle(75)
+            duty = 75
+            p.ChangeDutyCycle(duty)
 #            print ("Left", tVal, pVal)
             print ("Left: 75")
         elif key == 'w':
@@ -66,13 +69,15 @@ try:
         elif key == 'a':
 #            tVal = max (-90, tVal-10)
 #            doServos()
-            print ("Left", tVal)
-#            p.ChangeDutyCycle(25)
+            duty -= 5
+            print ("Left", duty)
+            p.ChangeDutyCycle(duty)
         elif key == 'd':
 #            tVal = min(90, tVal+10)
 #            doServos()
-            print ("Left", tVal)
-#            p.ChangeDutyCycle(75)
+            duty += 5
+            print ("Right", duty)
+            p.ChangeDutyCycle(duty)
         elif key == 's':
 #            pVal = max(-90, pVal-10)
 #            doServos()
