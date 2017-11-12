@@ -86,10 +86,10 @@ while True:
         print ("Down", tilt)
         t.ChangeDutyCycle(tilt)
     elif key == 'quit':
+        initio.cleanup()
         break
     else:
         print("incorrect input")
 #except KeyboardInterrupt:
 #    print("")
 #finally:
-    initio.cleanup()
