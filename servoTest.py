@@ -37,7 +37,7 @@ duty = 50
 
 try:
     while True:
-        key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, ^C=Exit,'L','R'")
+        key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
         if key == ' ':
 #            tVal = 0
 #            pVal = 0
@@ -82,7 +82,7 @@ try:
 #            pVal = max(-90, pVal-10)
 #            doServos()
             print ("Down (unused)")
-        elif ord(key) == 3:
+        elif key == 'quit':
             break
         else:
             print("incorrect input")
