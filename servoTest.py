@@ -84,6 +84,8 @@ try:
             print ("Down (unused)")
         elif ord(key) == 3:
             break
+        else:
+            print("incorrect input")
 
 except KeyboardInterrupt:
     print("")
