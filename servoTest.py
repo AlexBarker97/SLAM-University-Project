@@ -33,7 +33,7 @@ gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(50) # start it at 50% - should be centre of servo
 
-duty = 50
+duty = 61
 
 try:
     while True:
