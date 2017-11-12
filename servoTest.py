@@ -1,7 +1,84 @@
 #!/usr/bin/python
 # servoTest.py
 
-import initio
+import initio, time, RPi.GPIO as gpio
+
+#Motors
+L1 = 19
+L2 = 21
+R1 = 24
+R2 = 26
+
+pan = 22
+
+gpio.setmode(gpio.BOARD)
+gpio.setup(L1, gpio.OUT)
+gpio.setup(L2, gpio.OUT)
+gpio.setup(R1, gpio.OUT)
+gpio.setup(R2, gpio.OUT)
+gpio.setup(pan, gpio.OUT)
+
+
+p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
+p.start(50) # start it at 50% - should be centre of servo
+#p.ChangeDutyCycle(100)
+
+# main loop
+try:
+    while True:
+        print ("Use Arrows or W-Up, Z-Down, A-Left, S-Right Space=Centre, ^C=Exit:")
+        key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, ^C=Exit,'L','R'")
+        if key == ' ':
+#            tVal = 0
+#            pVal = 0
+#            doServos()
+            p.ChangeDutyCycle(50)
+#            print ("Centre", tVal, pVal)
+            print ("Centre: 50")
+        elif key.upper() == 'L':
+#            tVal = -90
+#            pVal = -90
+#            doServos()
+            p.ChangeDutyCycle(25)
+#            print ("Left", tVal, pVal)
+            print ("Left: 25")
+        elif key.upper() == 'R':
+#            tVal = 90
+#            pVal = 90
+#            doServos()
+            p.ChangeDutyCycle(75)
+#            print ("Right", tVal, pVal)
+            print ("Right: 75")
+        elif key == 'w':
+#            pVal = min(90, pVal+10)
+#            doServos()
+            print ("Up (unused)")
+        elif key == 'a':
+#            tVal = max (-90, tVal-10)
+#            doServos()
+            print ("Left", tVal)
+#            p.ChangeDutyCycle(25)
+        elif key == 'd':
+#            tVal = min(90, tVal+10)
+#            doServos()
+            print ("Left", tVal)
+#            p.ChangeDutyCycle(75)
+        elif key == 's':
+#            pVal = max(-90, pVal-10)
+#            doServos()
+            print ("Down (unused)")
+        elif ord(key) == 3:
+            break
+    
+        p.ChangeDutyCycle(50)
+        print ('Centre')
+        time.sleep(3)
+        p.ChangeDutyCycle(25)
+        print ('Left')
+        time.sleep(3)
+        p.ChangeDutyCycle(75)
+        print ('Right')
+        time.sleep(3)
 
 # Define pins for Pan/Tilt
 pan = 0
@@ -9,38 +86,9 @@ tilt = 1
 tVal = 0 # 0 degrees is centre
 pVal = 0 # 0 degrees is centre
 
-#======================================================================
-# Reading single character by forcing stdin to raw mode
 import sys
 import tty
 import termios
-
-#def readchar():
-#    fd = sys.stdin.fileno()
-#    old_settings = termios.tcgetattr(fd)
-#    try:
-#        tty.setraw(sys.stdin.fileno())
-#        ch = sys.stdin.read(1)
-#    finally:
-#        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-#    if ch == '0x03':
-#        raise KeyboardInterrupt
-#    return ch
-#
-#def readkey(getchar_fn=None):
-#    getchar = getchar_fn or readchar
-#    c1 = getchar()
-#    if ord(c1) != 0x1b:
-#        return c1
-#    c2 = getchar()
-#    if ord(c2) != 0x5b:
-#        return c1
-#    c3 = getchar()
-#    return chr(0x10 + ord(c3) - 65)  # 16=Up, 17=Down, 18=Right, 19=Left arrows
-
-# End of single character reading
-#======================================================================
-
 
 initio.init()
 #print "Initio version: ", initio.version()
@@ -51,54 +99,6 @@ def doServos():
 
 print ("Use Arrows or W-Up, Z-Down, A-Left, S-Right Space=Centre, ^C=Exit:")
 key = " "
-try:
-    while True:
-#        key = readkey()
-        key = input(" ,L,R,x,w,a,s,z,g")
-        if key == ' ':
-            tVal = 0
-            pVal = 0
-            doServos()
-            print ("Centre", tVal, pVal)
-        elif key.upper() == 'L':
-            tVal = -90
-            pVal = -90
-            doServos()
-            print ("Left", tVal, pVal)
-        elif key.upper() == 'R':
-            tVal = 90
-            pVal = 90
-            doServos()
-            print ("Right", tVal, pVal)
-        elif key ==' x' or key == '.':
-            initio.stopServos()
-            print ("Stop")
-
-        elif key == 'w' or ord(key) == 16:
-            pVal = min(90, pVal+10)
-            doServos()
-            print ("Up", pVal)
-
-        elif key == 'a' or ord(key) == 19:
-            tVal = max (-90, tVal-10)
-            doServos()
-            print ("Left", tVal)
-
-        elif key == 's' or ord(key) == 18:
-            tVal = min(90, tVal+10)
-            doServos()
-            print ("Right", tVal)
-
-        elif key == 'z' or ord(key) == 17:
-            pVal = max(-90, pVal-10)
-            doServos()
-            print ("Down", pVal)
-
-        elif key == 'g':
-            initio.startServos()
-            print ("Down")
-        elif ord(key) == 3:
-            break
 
 except KeyboardInterrupt:
     print("")
