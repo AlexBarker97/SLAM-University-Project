@@ -45,20 +45,20 @@ try:
             p.ChangeDutyCycle(50)
 #            print ("Centre", tVal, pVal)
             print ("Centre: 50")
-        elif key.upper() == 'L':
+        elif key.upper() == 'R':
 #            tVal = -90
 #            pVal = -90
 #            doServos()
             p.ChangeDutyCycle(25)
-#            print ("Left", tVal, pVal)
-            print ("Left: 25")
-        elif key.upper() == 'R':
+#            print ("Right", tVal, pVal)
+            print ("Right: 25")
+        elif key.upper() == 'L':
 #            tVal = 90
 #            pVal = 90
 #            doServos()
             p.ChangeDutyCycle(75)
-#            print ("Right", tVal, pVal)
-            print ("Right: 75")
+#            print ("Left", tVal, pVal)
+            print ("Left: 75")
         elif key == 'w':
 #            pVal = min(90, pVal+10)
 #            doServos()
