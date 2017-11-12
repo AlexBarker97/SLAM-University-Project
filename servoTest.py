@@ -9,7 +9,7 @@ L2 = 21
 R1 = 24
 R2 = 26
 pan = 22
-tilt = 20
+tilt = 23
 #tVal = 0 # 0 degrees is centre
 #pVal = 0 # 0 degrees is centre
 
