@@ -2,13 +2,26 @@
 # servoTest.py
 
 import initio, time, RPi.GPIO as gpio
+import sys
+import tty
+import termios
 
 #Motors
 L1 = 19
 L2 = 21
 R1 = 24
 R2 = 26
-pan = 0
+pan = 22
+tilt = 1
+tVal = 0 # 0 degrees is centre
+pVal = 0 # 0 degrees is centre
+
+initio.init()
+#print "Initio version: ", initio.version()
+
+def doServos():
+    initio.setServo(pan, pVal)
+    initio.setServo(tilt, tVal)
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(L1, gpio.OUT)
@@ -67,36 +80,6 @@ try:
             print ("Down (unused)")
         elif ord(key) == 3:
             break
-    
-        p.ChangeDutyCycle(50)
-        print ('Centre')
-        time.sleep(3)
-        p.ChangeDutyCycle(25)
-        print ('Left')
-        time.sleep(3)
-        p.ChangeDutyCycle(75)
-        print ('Right')
-        time.sleep(3)
-
-# Define pins for Pan/Tilt
-pan = 0
-tilt = 1
-tVal = 0 # 0 degrees is centre
-pVal = 0 # 0 degrees is centre
-
-import sys
-import tty
-import termios
-
-initio.init()
-#print "Initio version: ", initio.version()
-
-def doServos():
-    initio.setServo(pan, pVal)
-    initio.setServo(tilt, tVal)
-
-print ("Use Arrows or W-Up, Z-Down, A-Left, S-Right Space=Centre, ^C=Exit:")
-key = " "
 
 except KeyboardInterrupt:
     print("")
