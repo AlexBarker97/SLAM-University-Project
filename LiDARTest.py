@@ -10,7 +10,7 @@ try:
         time.sleep(1)
 
 except KeyboardInterrupt:
-    print
+    print()
     pass
 
 finally:
