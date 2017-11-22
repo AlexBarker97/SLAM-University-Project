@@ -1,6 +1,6 @@
 #source "https://github.com/Terabee/teraranger/blob/master/src/teraranger_one.cpp"
 #Written by "pl-kabaradjian", "Babtou67", "msadowski"
-#Editing for educational, non-profit purposes
+#Editing for educational, non-profit purposes, converting from C++ to python to be used on a raspberry pi
 
 include <teraranger/teraranger_one.h>     #import "teraranger_one.h" library as "teraranger"
 
