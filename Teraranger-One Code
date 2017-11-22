@@ -2,15 +2,15 @@
 #Written by "pl-kabaradjian", "Babtou67", "msadowski"
 #Editing for educational, non-profit purposes
 
-#include <teraranger/teraranger_one.h>
+include <teraranger/teraranger_one.h>     #import "teraranger_one.h" library as "teraranger"
 
-namespace teraranger
+namespace teraranger      #used to organize code into logical groups
 {
 
-TerarangerOne::TerarangerOne()
+TerarangerOne::TerarangerOne()    #module declaration
 {
   // Get parameters
-  ros::NodeHandle private_node_handle_("~");
+  ros::NodeHandle private_node_handle_("~");        #ros.module(parameter)
   private_node_handle_.param("portname", portname_, std::string("/dev/ttyUSB0"));
   private_node_handle_.param("frame_id", frame_id_, std::string("base_range"));
 
@@ -26,7 +26,7 @@ TerarangerOne::TerarangerOne()
   serial::Timeout to = serial::Timeout::simpleTimeout(SERIAL_TIMEOUT_MS);
   serial_port_.setTimeout(to);
 
-  serial_port_.open();
+  serial_port_.open();          
 
   // Connect serial port
   if(!serial_port_.isOpen())
