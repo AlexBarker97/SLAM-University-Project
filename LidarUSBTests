@@ -1,4 +1,6 @@
 import serial
-ser=serial.Serial()
+ser = serial.Serial()
 ser.port = 'COM1'
+ser.baudrate = 19200
 print(ser)
+ser.close()
