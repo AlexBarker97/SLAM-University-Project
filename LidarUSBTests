@@ -1,4 +1,4 @@
 import serial
 ser=serial.Serial()
 ser.port = 'COM1'
-ser
+print(ser)
