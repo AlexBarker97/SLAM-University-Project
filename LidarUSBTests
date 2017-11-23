@@ -3,5 +3,6 @@ ser = serial.Serial()
 ser.port = 'COM1'
 ser.baudrate = 19200
 print(ser)
+ser.open()
 print(ser.readline())
 ser.close()
