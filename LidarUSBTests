@@ -1,6 +1,6 @@
 import serial
 ser = serial.Serial()
-ser.port = 'COM1'
+ser.port = 'ttyUSB6'
 ser.baudrate = 19200
 print(ser)
 ser.open()
