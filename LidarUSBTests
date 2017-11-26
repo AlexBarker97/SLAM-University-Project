@@ -4,5 +4,5 @@ ser.port = '/dev/ttyUSB0'
 ser.baudrate = 19200
 print(ser)
 ser.open()
-print(ser.readline())
+print(/n ser.readline())
 ser.close()
