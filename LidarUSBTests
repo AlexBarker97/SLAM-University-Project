@@ -1,8 +1,14 @@
 import serial
 ser = serial.Serial()
 ser.port = '/dev/ttyUSB0'
-ser.baudrate = 19200
+ser.baudrate = 115200
+ser.parity = serial.PARITY_NONE
+ser.stopbits = serial.STOPBITS_ONE
+ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
 print('\n', ser.readline())
 ser.close()
+
+#The UART is configured to send and receive at 115200 bit/s, 8 data bits, no parity bit and
+#one stop bit (115200-8N1).
