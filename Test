@@ -10,15 +10,18 @@ multiflex = serial.Serial(port_name, 115200, timeout=10, writeTimeout=5)
 print ('Connected')
 multiflex.flushInput()
 multiflex.flushOutput()
-multiflex.write(bytearray([0x00, 0x11, 0x01, 0x45]))
+#multiflex.write(bytearray([0x00, 0x11, 0x01, 0x45]))
+
+ser.write(bytes('F', 'UTF-8'))
+ser.write(bytes('T', 'UTF-8'))
 
 response = multiflex.read(16)
 response = binascii.hexlify(response)
 
-if response.find("52451100d4") != -1:
+if response.find("52451100d4") != b'-1':
     print ('ACK')
 
-if response.find("5245110027") != -1:
+if response.find("5245110027") != b'-1':
     print ('NACK')
 
 multiflex.close()
