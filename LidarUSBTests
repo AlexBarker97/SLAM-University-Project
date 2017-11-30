@@ -14,8 +14,9 @@ ser.bytesize = serial.EIGHTBITS
 ser.timeout = 3
 print(ser)
 ser.open()
-ser.write('F')
-ser.write('T')
+check=serial.Serial(1)
+check.write(b"F")
+check.write(b"T")
 ser.read(5)
 
 ser.close()
