@@ -14,7 +14,7 @@ ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
 ser.write(b'T')
-reading = ser.readline().decode()
+reading = ser.read().decode()
 print(reading)
            
 ser.close()
