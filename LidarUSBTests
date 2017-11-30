@@ -8,5 +8,5 @@ ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
 ser.write(b'0x61')
-#print('\n', ser.readline())
+print('\n', ser.readline())
 ser.close()
