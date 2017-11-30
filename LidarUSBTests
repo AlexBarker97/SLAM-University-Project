@@ -1,4 +1,5 @@
 import serial
+connected = False
 ser = serial.Serial()
 ser.port = '/dev/ttyUSB0'
 ser.baudrate = 115200
@@ -7,7 +8,17 @@ ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
-while True:
-  ser.write(b'T')
-  ser.read()
+ser.write(b'T')
+
+def handle_data(data):
+    print(data)
+
+def read_from_port(ser):
+    while not connected:
+        connected = True
+        while True:
+           print("test")
+           reading = ser.readline().decode()
+           handle_data(reading)
+           
 ser.close()
