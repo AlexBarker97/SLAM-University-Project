@@ -1,5 +1,11 @@
 import serial
+import threading
+
 connected = False
+port = '/dev/ttyUSB0'
+baud = 115200
+serial_port = serial.Serial(port, baud, timeout=0)
+
 ser = serial.Serial()
 ser.port = '/dev/ttyUSB0'
 ser.baudrate = 115200
@@ -21,4 +27,7 @@ def read_from_port(ser):
            reading = ser.readline().decode()
            handle_data(reading)
            
+thread = threading.Thread(target=read_from_port, args=(serial_port,))
+thread.start()
+
 ser.close()
