@@ -7,8 +7,6 @@ ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
+ser.write(0x61)
 #print('\n', ser.readline())
 ser.close()
-
-#The UART is configured to send and receive at 115200 bit/s, 8 data bits, no parity bit and
-#one stop bit (115200-8N1).
