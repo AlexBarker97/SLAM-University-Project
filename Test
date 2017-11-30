@@ -2,14 +2,12 @@ import sys
 import serial 
 import binascii
 
-if len(sys.argv) < 2:
-    print ('\n[ERROR] Correct usage $ python multiflex_text.py port')
-    sys.exit(1)
 
-port_name = sys.argv[1]
+
+port_name = /dev/ttyUSB0
 multiflex = serial.Serial(port_name, 115200, timeout=10, writeTimeout=5)
 
-print ('Connected to TeraRanger MultiFlex')
+print ('Connected')
 multiflex.flushInput()
 multiflex.flushOutput()
 multiflex.write(bytearray([0x00, 0x11, 0x01, 0x45]))
