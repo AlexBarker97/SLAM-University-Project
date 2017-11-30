@@ -11,6 +11,7 @@ ser.baudrate = 115200
 ser.parity = serial.PARITY_NONE
 ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
+ser.timeout = 3
 print(ser)
 ser.open()
 ser.write(b'T')
