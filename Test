@@ -10,10 +10,9 @@ multiflex = serial.Serial(port_name, 115200, timeout=10, writeTimeout=5)
 print ('Connected')
 multiflex.flushInput()
 multiflex.flushOutput()
-#multiflex.write(bytearray([0x00, 0x11, 0x01, 0x45]))
-
-ser.write(bytes('F', 'UTF-8'))
-ser.write(bytes('T', 'UTF-8'))
+multiflex.write(bytearray([0x00, 0x11, 0x01, 0x45]))
+#ser.write(bytes('F', 'UTF-8'))
+#ser.write(bytes('T', 'UTF-8'))
 
 response = multiflex.read(16)
 response = binascii.hexlify(response)
