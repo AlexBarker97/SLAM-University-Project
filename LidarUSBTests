@@ -1,5 +1,4 @@
 import serial
-import threading
 
 ser = serial.Serial()
 ser.port = '/dev/ttyUSB0'
