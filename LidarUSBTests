@@ -14,15 +14,7 @@ ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
 ser.write(b'T')
-
-def handle_data(data):
-    print(data)
-
-def read_from_port(ser):
-   reading = ser.readline().decode()
-   handle_data(reading)
+reading = ser.readline().decode()
+print(reading)
            
-thread = threading.Thread(target=read_from_port, args=(serial_port,))
-thread.start()
-
 ser.close()
