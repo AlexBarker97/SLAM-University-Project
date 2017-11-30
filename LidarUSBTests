@@ -7,6 +7,6 @@ ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
 print(ser)
 ser.open()
-ser.write(b0x61)
+ser.write(0x61)
 #print('\n', ser.readline())
 ser.close()
