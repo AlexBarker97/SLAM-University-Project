@@ -18,7 +18,7 @@ response = multiflex.read(16)
 response = binascii.hexlify(response)
 
 if response.find("52451100d4") != -1:
-    print ('ACK'_
+    print ('ACK')
 
 if response.find("5245110027") != -1:
     print ('NACK')
