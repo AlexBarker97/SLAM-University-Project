@@ -32,4 +32,4 @@ while True:
        res8 = hex[result[11]]
        if ((str(res1) == "5") and (str(res2) == "4")):
               value= value + (res3*6) + (res4*5) + (res5*4) + (res6*3) + (res7*2) + (res8)
-              print(res3,res4,res5,res6,res7,res8)
+              print(value)
