@@ -13,5 +13,5 @@ ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 while True:
   result = binascii.hexlify(ser.read(8))
-  result = result[0:6]
+  result = str(result)
   print(result)
