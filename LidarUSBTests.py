@@ -10,5 +10,5 @@ ser.timeout = 10
 ser.open()
 ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
-ser.read(5)
+print(ser.read(5))
 ser.close()
