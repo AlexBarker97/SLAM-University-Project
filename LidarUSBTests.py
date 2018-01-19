@@ -8,7 +8,7 @@ ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
 ser.timeout = 10
 ser.open()
-ser.write(bytes('F', 'UTF-8'))
+ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 ser.read(5)
 ser.close()
