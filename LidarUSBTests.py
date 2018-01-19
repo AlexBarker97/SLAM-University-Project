@@ -14,4 +14,6 @@ ser.write(bytes('T', 'UTF-8'))
 while True:
   result = binascii.hexlify(ser.read(8))
   result = str(result)
+  result = result.replace("b'", "")
+  result = result.replace("'", "")
   print(result)
