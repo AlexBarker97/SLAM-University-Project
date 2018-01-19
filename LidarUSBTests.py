@@ -11,4 +11,4 @@ ser.open()
 ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 while True:
-  print(ser.read(5))
+  print(ser.read(16))
