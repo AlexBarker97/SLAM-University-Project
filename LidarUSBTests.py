@@ -21,7 +21,7 @@ while True:
        result = str(result)
        result = result.replace("b'", "")
        result = result.replace("'", "")
-       print(result[4:12])
+       #print(result[4:12])
        res1 = hex[result[4]]
        res2 = hex[result[5]]
        res3 = hex[result[6]]
