@@ -12,5 +12,3 @@ ser.open()
 ser.write(bytes('F', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 ser.read(5)
-
-ser.close()
