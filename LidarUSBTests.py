@@ -16,4 +16,4 @@ while True:
   result = str(result)
   result = result.replace("b'", "")
   result = result.replace("'", "")
-  print(result)
+  print(result[2:8])
