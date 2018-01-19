@@ -13,7 +13,7 @@ multiflex.write(bytes('F', 'UTF-8'))
 multiflex.write(bytes('T', 'UTF-8'))
 
 response = multiflex.read(16)
-#response = binascii.hexlify(response)
+response = binascii.hexlify(response)
 print(response)
 
 multiflex.close()
