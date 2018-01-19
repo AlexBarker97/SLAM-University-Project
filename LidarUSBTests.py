@@ -16,6 +16,7 @@ hex = {"0":0,  "1":1,  "2":2,  "3":3,
        "8":8,  "9":9,  "a":10, "b":11,
        "c":12, "d":13, "e":14, "f":15}
 while True:
+       value = 0
        result = binascii.hexlify(ser.read(8))
        result = str(result)
        result = result.replace("b'", "")
@@ -30,4 +31,5 @@ while True:
        res7 = hex[result[10]]
        res8 = hex[result[11]]
        if ((str(res1) == "5") and (str(res2) == "4")):
+              value= value + (res3*6) + (res4*5) + (res5*4) + (res6*3) + (res7*2) + (res8)
               print(res3,res4,res5,res6,res7,res8)
