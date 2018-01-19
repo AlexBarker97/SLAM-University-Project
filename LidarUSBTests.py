@@ -29,4 +29,4 @@ while True:
   res6 = hex[result[9]]
   res7 = hex[result[10]]
   res8 = hex[result[11]]
-  print(res1,res2,res3,res4,res5,res6)
+  print(res1,res2,res3,res4,res5,res6,res8,res9)
