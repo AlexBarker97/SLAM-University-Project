@@ -29,5 +29,5 @@ while True:
        res6 = hex[result[9]]
        res7 = hex[result[10]]
        res8 = hex[result[11]]
-  if ((res1 == "5") and (res2 == "4")):
-       print(res3,res4,res5,res6,res7,res8)
+       if ((res1 == "5") and (res2 == "4")):
+              print(res3,res4,res5,res6,res7,res8)
