@@ -17,11 +17,7 @@ multiflex.write(bytearray([0x00, 0x11, 0x01, 0x45]))
 response = multiflex.read(16)
 response = binascii.hexlify(response)
 
-if response.find("52451100d4") != b'-1':
-    print ('ACK')
-
-if response.find("5245110027") != b'-1':
-    print ('NACK')
+print(response)
 
 multiflex.close()
 sys.exit(0)
