@@ -12,4 +12,4 @@ ser.open()
 ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 while True:
-  print(binascii.hexlify(ser.read(8))[2:12])
+  print(binascii.hexlify(ser.read(8)[2:12]))
