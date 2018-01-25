@@ -36,13 +36,10 @@ try:
                      value= value + (res3*(16**5)) + (res4*(16**4)) + (res5*(16**3)) + (res6*(16**2)) + (res7*(16**1)) + (res8)
               print(value/760)
               keyp=input("'w','s','a','d','>','<',' ':")
-              if keyp == 'w' or ord(keyp) == 16:
+              if (keyp == 'w' or ord(keyp) == 16) and ((value/760) > 100):
                      initio.forward(speed)
                      print ('Forward', speed)
-              elif keyp == 's' or ord(keyp) == 17:
-                     initio.reverse(speed)
-                     print ('Reverse', speed)
-              elif keyp == 'd' or ord(keyp) == 18:
+              elif keyp == 'd' or ord(keyp):
                      initio.spinRight(speed)
                      print ('Spin Right', speed)
               elif keyp == 'a' or ord(keyp) == 19:
@@ -54,16 +51,13 @@ try:
               elif keyp == ',' or keyp == '<':
                      speed = max (0, speed-10)
                      print ('Speed-', speed)
-              elif keyp == ' ':
+              elif keyp == ' '
                      initio.stop()
                      print ('Stop')
               elif keyp == "quit":
                      break
               else:
-                     print("invalid input")            
-                     print("note: 'quit' to quit")
-              if (value/760) < 100:
-                     initio.reverse(20)
+                     initio.reverse(speed)
                      print ('Wall Detected')
             
 except KeyboardInterrupt:
