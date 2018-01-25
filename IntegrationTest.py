@@ -1,4 +1,4 @@
-import serial, binascii, initio, time, 
+import serial, binascii, initio, time
 
 ser = serial.Serial()
 ser.port = '/dev/ttyUSB0'
