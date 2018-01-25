@@ -39,7 +39,7 @@ try:
               if (keyp == 'w' or ord(keyp) == 16) and ((value/760) > 100):
                      initio.forward(speed)
                      print ('Forward', speed)
-              elif keyp == 'd' or ord(keyp):
+              elif keyp == 'd' or ord(keyp) == 18:
                      initio.spinRight(speed)
                      print ('Spin Right', speed)
               elif keyp == 'a' or ord(keyp) == 19:
