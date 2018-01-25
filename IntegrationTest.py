@@ -51,7 +51,7 @@ try:
               elif keyp == ',' or keyp == '<':
                      speed = max (0, speed-10)
                      print ('Speed-', speed)
-              elif keyp == ' '
+              elif keyp == ' ':
                      initio.stop()
                      print ('Stop')
               elif keyp == "quit":
