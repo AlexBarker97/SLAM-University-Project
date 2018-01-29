@@ -11,7 +11,7 @@ ser.port = '/dev/ttyUSB0'
 ser.baudrate = 115200
 ser.parity = serial.PARITY_NONE
 ser.stopbits = serial.STOPBITS_ONE
-ser.bytesize = serial.SIXBITS
+ser.bytesize = serial.EIGHTTBITS
 ser.timeout = 10
 ser.open()
 ser.write(bytes('P', 'UTF-8'))
