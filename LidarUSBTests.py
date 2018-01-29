@@ -23,18 +23,16 @@ while True:
        print(ser.read(4))
        print(result)
        result = str(result)
-       result = result.replace("b'", "")
        result = result.replace("'", "")
-       print(result)
-       #print(result[4:12])
-       res0 = hex[result[0]]
-       res1 = hex[result[1]]
-       res2 = hex[result[2]]
-       res3 = hex[result[3]]
-       res4 = hex[result[4]]
-       res5 = hex[result[5]]
-       res6 = hex[result[6]]
-       res7 = hex[result[7]]
-       if ((str(res0) == "5") and (str(res1) == "4")):
+       print(result[1:8])
+       res0 = hex[result[1]]
+       res1 = hex[result[2]]
+       res2 = hex[result[3]]
+       res3 = hex[result[4]]
+       res4 = hex[result[5]]
+       res5 = hex[result[6]]
+       res6 = hex[result[7]]
+       res7 = hex[result[8]]
+       if ((str(res1) == "5") and (str(res2) == "4")):
               value= value + (res3*(16**5)) + (res4*(16**4))
        print(value/760)
