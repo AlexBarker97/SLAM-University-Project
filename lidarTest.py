@@ -28,8 +28,6 @@ def getDistance():
     distance = distance / 2
     return distance
 
-
-
 try:
     while True:
         dist = getDistance()
