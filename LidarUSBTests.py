@@ -23,7 +23,7 @@ while True:
        StartSer()
        res1 = "5"
        res2 = "4"
-       While ((str(res1) == "5") and (str(res2) == "4")):
+       while ((str(res1) == "5") and (str(res2) == "4")):
               value = 0
               result = binascii.hexlify(ser.read())
               print(ser.read())
