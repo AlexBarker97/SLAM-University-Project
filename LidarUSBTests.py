@@ -35,6 +35,6 @@ while True:
        res5 = hex[result[5]]
        res6 = hex[result[6]]
        res7 = hex[result[7]]
-       if ((str(res1) == "5") and (str(res2) == "4")):
+       if ((str(res0) == "5") and (str(res1) == "4")):
               value= value + (res3*(16**5)) + (res4*(16**4))
        print(value/760)
