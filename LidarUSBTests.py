@@ -20,6 +20,7 @@ def StartSer():
 
 StartSer()
 while True:
+       ser = serial.Serial()
        value = 0
        result = binascii.hexlify(ser.read(4))
        print(ser.read(4))
