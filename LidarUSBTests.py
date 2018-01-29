@@ -6,6 +6,7 @@ hex = {"0":0,  "1":1,  "2":2,  "3":3,
        "8":8,  "9":9,  "a":10, "b":11,
        "c":12, "d":13, "e":14, "f":15}
 ser = serial.Serial()
+ser.close()
 ser.port = '/dev/ttyUSB0'
 ser.baudrate = 115200
 ser.parity = serial.PARITY_NONE
