@@ -24,7 +24,7 @@ while True:
        print(result)
        result = str(result)
        result = result.replace("'", "")
-       print(result[1:8])
+       print(result[1:9])
        res0 = hex[result[1]]
        res1 = hex[result[2]]
        res2 = hex[result[3]]
