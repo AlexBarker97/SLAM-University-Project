@@ -36,6 +36,7 @@ While True:
     res7 = hex2dec[result[9]]
     if ((str(res0) == "5") and (str(res1) == "4")):
         value = value + (res2*(16**6)) + (res3*(16**5)) + (res4*(16**4)) + (res5*(16**3)) + (res6*(16**2)) + (res7*(16**1)) + (res8*(16**0))
+        value = value / 1000
     else:
         ser.close()
         ser.port = '/dev/ttyUSB0'
