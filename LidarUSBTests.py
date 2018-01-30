@@ -23,20 +23,26 @@ while True:
     value = 0
     result = binascii.hexlify(ser.read(8))
     result = str(result)
-    res0 = hex2dec[result[4]]
+    res0 = hex2dec[result[2]]
     print(res0)
-    res1 = hex2dec[result[5]]
+    res1 = hex2dec[result[3]]
     print(res1)
-    res2 = hex2dec[result[6]]
+    res2 = hex2dec[result[4]]
     print(res2)
-    res3 = hex2dec[result[7]]
+    res3 = hex2dec[result[5]]
     print(res3)
-    res4 = hex2dec[result[8]]
-    res5 = hex2dec[result[9]]
-    res6 = hex2dec[result[10]]
-    res7 = hex2dec[result[11]]
+    res4 = hex2dec[result[6]]
+    print(res4)
+    res5 = hex2dec[result[7]]
+    print(res5)
+    res6 = hex2dec[result[8]]
+    print(res6)
+    res7 = hex2dec[result[9]]
+    print(res7)
+    res8 = hex2dec[result[10]]
+    print(res8)
     if ((str(res0) == "5") and (str(res1) == "4")):
-        value = value + (res1*(16**6)) + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
+        value = value + (res2*(16**6)) + (res3*(16**5)) + (res4*(16**4)) + (res5*(16**3)) + (res6*(16**2)) + (res7*(16**1)) + (res7*(16**0))
         value = value / 1000
         print(value)
     else:
