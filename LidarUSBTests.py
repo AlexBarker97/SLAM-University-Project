@@ -23,9 +23,7 @@ while True:
     value = 0
     result = binascii.hexlify(ser.read(8))
     result = str(result)
-    print(result[2])
     res0 = hex2dec[result[2]]
-    print(res0)
     res1 = hex2dec[result[3]]
     res2 = hex2dec[result[4]]
     res3 = hex2dec[result[5]]
@@ -36,6 +34,7 @@ while True:
     if ((str(res0) == "5") and (str(res1) == "4")):
         value = value + (res1*(16**6)) + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value / 1000
+        print(value)
     else:
         ser.close()
         ser.port = '/dev/ttyUSB0'
