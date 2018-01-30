@@ -18,26 +18,31 @@ ser.open()
 ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 
-res1 = "5"
-res2 = "4"
-       while ((str(res1) == "5") and (str(res2) == "4")):
-              value = 0
-              result = binascii.hexlify(ser.read())
-              print(ser.read())
-              print(result)
-              result = str(result)
-              result = result.replace("'", "")
-              print(result[1:9])
-              res0 = hex[result[1]]
-              res1 = hex[result[2]]
-              res2 = hex[result[3]]
-              res3 = hex[result[4]]
-              res4 = hex[result[5]]
-              res5 = hex[result[6]]
-              res6 = hex[result[7]]
-              res7 = hex[result[8]]
-              if ((str(res1) == "5") and (str(res2) == "4")):
+While True:
+       state1 = 0
+       state2 = 0
+       value = 0
+       result = binascii.hexlify(ser.read())
+       result = str(result)
+       res0 = hex[result[2]]
+       res1 = hex[result[3]]
+       res2 = hex[result[4]]
+       res3 = hex[result[5]]
+       res4 = hex[result[6]]
+       res5 = hex[result[7]]
+       res6 = hex[result[8]]
+       res7 = hex[result[9]]
+              if ((str(res0) == "5") and (str(res1) == "4")):
                      value = value + (res2*(16**6)) + (res3*(16**5)) + (res4*(16**4)) + (res5*(16**3)) + (res6*(16**2)) + (res7*(16**1)) + (res8*(16**0))
                      print(value/760)
               else:
-                     StartSer()
+                     ser.close()
+                     ser.port = '/dev/ttyUSB0'
+                     ser.baudrate = 115200
+                     ser.parity = serial.PARITY_NONE
+                     ser.stopbits = serial.STOPBITS_ONE
+                     ser.bytesize = serial.EIGHTBITS
+                     ser.timeout = 10
+                     ser.open()
+                     ser.write(bytes('P', 'UTF-8'))
+                     ser.write(bytes('T', 'UTF-8'))
