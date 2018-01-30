@@ -25,6 +25,7 @@ While True:
        result = binascii.hexlify(ser.read())
        result = str(result)
        res0 = hex2dec[result[2]]
+       print(res0)
        res1 = hex2dec[result[3]]
        res2 = hex2dec[result[4]]
        res3 = hex2dec[result[5]]
