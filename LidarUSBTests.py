@@ -21,7 +21,7 @@ while True:
     state1 = 0
     state2 = 0
     value = 0
-    result = binascii.hexlify(ser.read())
+    result = binascii.hexlify(ser.read(8))
     print(result)
     result = str(result)
     print(result)
