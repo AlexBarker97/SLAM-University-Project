@@ -24,9 +24,13 @@ while True:
     result = binascii.hexlify(ser.read(8))
     result = str(result)
     res0 = hex2dec[result[2]]
+    print(res0)
     res1 = hex2dec[result[3]]
+    print(res1)
     res2 = hex2dec[result[4]]
+    print(res2)
     res3 = hex2dec[result[5]]
+    print(res3)
     res4 = hex2dec[result[6]]
     res5 = hex2dec[result[7]]
     res6 = hex2dec[result[8]]
