@@ -33,7 +33,7 @@ while True:
     res7 = hex2dec[result[9]]
     if ((str(res0) == "5") and (str(res1) == "4")):
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
-        value = value / 1000
+        value = (value / 1000) - 53
         print(value)
     else:
         ser.close()
