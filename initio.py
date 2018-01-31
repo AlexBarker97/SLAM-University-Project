@@ -119,8 +119,6 @@ def init():
     b = GPIO.PWM(R2, 20)
     b.start(0)
 
-    startServos()
-
 # cleanup(). Sets all motors off and sets GPIO to standard values
 def cleanup():
     stop()
