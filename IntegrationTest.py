@@ -54,4 +54,4 @@ while True:
     else:
         initio.spinRight(speed)
         print('Wall Detected')
-        sleep(1.0)
+        time.sleep(1.0)
