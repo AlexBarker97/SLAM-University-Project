@@ -8,7 +8,6 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
 initio.init()
 
 ser = serial.Serial()
-ser.close()
 ser.port = '/dev/ttyUSB0'
 ser.baudrate = 115200
 ser.parity = serial.PARITY_NONE
