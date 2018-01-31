@@ -19,6 +19,7 @@ ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 
 while True:
+    initio.cleanup()
     state1 = 0
     state2 = 0
     value = 0
