@@ -6,7 +6,6 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "c": 12, "d": 13, "e": 14, "f": 15}
 
 initio.init()
-initio.cleanup()
 
 ser = serial.Serial()
 ser.close()
