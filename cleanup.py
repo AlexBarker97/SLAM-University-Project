@@ -7,5 +7,6 @@ ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
 ser.timeout = 10
 ser.close()
+initio.init()
 initio.cleanup()
 print("Cleanup Complete...")
