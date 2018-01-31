@@ -4,6 +4,7 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "4": 4,  "5": 5,  "6": 6,  "7": 7,
            "8": 8,  "9": 9,  "a": 10, "b": 11,
            "c": 12, "d": 13, "e": 14, "f": 15}
+initio.cleanup()
 initio.init()
 
 ser = serial.Serial()
@@ -19,7 +20,6 @@ ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 
 while True:
-    initio.cleanup()
     state1 = 0
     state2 = 0
     value = 0
