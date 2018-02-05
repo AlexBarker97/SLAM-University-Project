@@ -1,10 +1,5 @@
 import initio, time, RPi.GPIO as gpio, sys, tty, termios, numpy as np, matplotlib.pyplot as plt, serial, binascii
 
-#Motors
-L1 = 19
-L2 = 21
-R1 = 24
-R2 = 26
 pan = 22
 
 initio.init()
