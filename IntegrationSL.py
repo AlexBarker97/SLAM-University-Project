@@ -4,9 +4,6 @@ pan = 22
 
 initio.init()
 
-#def doServos():
-#    initio.setServo(pan, pVal)
-
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
@@ -52,14 +49,14 @@ while True:
         value = value/4250
         time.sleep(0.1)
         if duty >= 25:
-            duty -= 1
-            p.ChangeDutyCycle(duty)
             print(duty)
             print(value)
             r.append(value)
             theta.append(duty)
         else:
             break
+    duty -= 1
+    p.ChangeDutyCycle(duty)
     else:
         ser.close()
         ser.port = '/dev/ttyUSB0'
