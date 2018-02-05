@@ -55,8 +55,6 @@ while True:
             theta.append(duty)
         else:
             break
-    duty -= 1
-    p.ChangeDutyCycle(duty)
     else:
         ser.close()
         ser.port = '/dev/ttyUSB0'
@@ -68,6 +66,8 @@ while True:
         ser.open()
         ser.write(bytes('P', 'UTF-8'))
         ser.write(bytes('T', 'UTF-8'))
+    duty -= 1
+    p.ChangeDutyCycle(duty)
 
 ax = plt.subplot(111, projection='polar')
 ax.plot(theta, r)
