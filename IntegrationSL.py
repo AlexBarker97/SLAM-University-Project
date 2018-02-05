@@ -61,7 +61,7 @@ while True:
     if ((str(res0) == "5") and (str(res1) == "4")):
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
-        time.sleep(0.4)
+        time.sleep(0.1)
         if duty >= 25:
             duty -= 1
             p.ChangeDutyCycle(duty)
