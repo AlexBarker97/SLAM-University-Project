@@ -19,10 +19,8 @@ gpio.setup(R1, gpio.OUT)
 gpio.setup(R2, gpio.OUT)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
-p.start(90)
-
 duty = 90
-
+p.start(90)
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "4": 4,  "5": 5,  "6": 6,  "7": 7,
