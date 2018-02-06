@@ -18,8 +18,6 @@ ser.write(bytes('P', 'UTF-8'))
 ser.write(bytes('T', 'UTF-8'))
 
 while True:
-    state1 = 0
-    state2 = 0
     value = 0
     result = binascii.hexlify(ser.read(8))
     result = str(result)
