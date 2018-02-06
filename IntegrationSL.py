@@ -33,7 +33,6 @@ theta = []
 while True:
     result = binascii.hexlify(ser.read(8))
     result = str(result)
-    print(result)
     res0 = hex2dec[result[2]]
     res1 = hex2dec[result[3]]
     res2 = hex2dec[result[4]]
@@ -67,7 +66,7 @@ while True:
         ser.open()
         ser.write(bytes('P', 'UTF-8'))
         ser.write(bytes('T', 'UTF-8'))
-
+print(r,theta)
 #ax = plt.subplot(111, projection='polar')
 #ax.plot(theta, r)
 #ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
