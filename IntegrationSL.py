@@ -68,8 +68,8 @@ while True:
         ser.write(bytes('T', 'UTF-8'))
 for x in range(0, 65):
     print(r[x],theta[x])
-#ax = plt.subplot(111, projection='polar')
-#ax.plot(theta, r)
-#ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
-#ax.grid(True)
-#plt.show()
+ax = plt.subplot(111, projection='polar')
+ax.plot(theta, r)
+ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
+ax.grid(True)
+plt.savefig('test')
