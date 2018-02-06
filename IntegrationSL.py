@@ -36,6 +36,7 @@ while True:
     value = 0
     result = binascii.hexlify(ser.read(8))
     result = str(result)
+    print(result)
     res0 = hex2dec[result[2]]
     res1 = hex2dec[result[3]]
     res2 = hex2dec[result[4]]
@@ -48,6 +49,8 @@ while True:
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         time.sleep(0.1)
+        duty -= 1
+        p.ChangeDutyCycle(duty)
         if duty >= 25:
             print(duty)
             print(value)
@@ -66,12 +69,9 @@ while True:
         ser.open()
         ser.write(bytes('P', 'UTF-8'))
         ser.write(bytes('T', 'UTF-8'))
-    duty -= 1
-    p.ChangeDutyCycle(duty)
 
-ax = plt.subplot(111, projection='polar')
-ax.plot(theta, r)
-ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
-ax.grid(True)
-
-plt.show()
+#ax = plt.subplot(111, projection='polar')
+#ax.plot(theta, r)
+#ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
+#ax.grid(True)
+#plt.show()
