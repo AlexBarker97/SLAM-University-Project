@@ -52,5 +52,5 @@ while True:
         initio.forward(speed)
         print('Forward', speed)
     else:
-        initio.reverse(speed)
+        initio.stop()
         print('Wall Detected')
