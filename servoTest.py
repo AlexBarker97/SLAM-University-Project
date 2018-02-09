@@ -17,10 +17,10 @@ def setServoPos(angle):
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 50)   # frequency is 500Hz, so each pulse is 2ms wide
-p.start(0)
+p.start(61)
 gpio.setup(tilt, gpio.OUT)
 t = gpio.PWM(tilt, 50)   # frequency is 500Hz, so each pulse is 2ms wide
-t.start(0)
+t.start(61)
 
 duty = 0
 angle = 0
@@ -28,7 +28,7 @@ angle = 0
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
     if key == ' ':
-        angle = 0
+        angle = 61
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
         print ("Centre")
@@ -47,12 +47,12 @@ while True:
         print ("Up (commented)", tilt)
         #t.ChangeDutyCycle(tilt)
     elif key == 'd':
-        angle += 50
+        angle -= 5
         print ("Right")
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
     elif key == 'a':
-        angle -= 50
+        angle += 5
         print ("Left")
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
