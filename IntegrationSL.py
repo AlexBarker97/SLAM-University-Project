@@ -1,8 +1,8 @@
 import initio, time, RPi.GPIO as gpio, sys, tty, termios, numpy as np, matplotlib.pyplot as plt, serial, binascii
 
 def setServoPos(angle):
-    p.ChangeDutyCycle((((angle+90)/180)+1)/20)
-    print((((angle+90)/180)+1)/20)
+    p.ChangeDutyCycle((((angle+90)/180)+1))
+    print((((angle+90)/180)+1))
 
 initio.init()
 
