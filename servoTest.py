@@ -11,7 +11,7 @@ initio.init()
 
 def doServos():
     initio.setServo(pan, pVal)
-    initio.setServo(tilt, tVal)
+    #initio.setServo(tilt, tVal)
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
