@@ -15,10 +15,10 @@ def doServos():
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
-p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
+p = gpio.PWM(pan, 50)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(61)
 gpio.setup(tilt, gpio.OUT)
-t = gpio.PWM(tilt, 500)   # frequency is 500Hz, so each pulse is 2ms wide
+t = gpio.PWM(tilt, 50)   # frequency is 500Hz, so each pulse is 2ms wide
 t.start(61)
 
 tilt = 61
