@@ -48,13 +48,13 @@ while True:
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         time.sleep(0.5)
-        duty -= 1
+        angle -= 1
         setServoPos(angle)
-        if duty >= 25:
-            print(duty)
+        if angle >= 25:
+            print(angle)
             print(value)
             r.append(value)
-            theta.append(duty)
+            theta.append(angle)
         else:
             break
     else:
