@@ -9,8 +9,8 @@ gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
 p = gpio.PWM(22, 50) #frequency is 50Hz, so each period is 20ms wide, pulse is from 1ms to 2ms
-angle = 0 #initial centre angle
-p.start(0) 
+angle = 90 #initial centre angle
+p.start(angle) 
 setServoPos(angle)
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
