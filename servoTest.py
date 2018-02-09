@@ -47,12 +47,12 @@ while True:
         print ("Up (commented)", tilt)
         #t.ChangeDutyCycle(tilt)
     elif key == 'd':
-        angle += 5
+        angle += 50
         print ("Right")
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
     elif key == 'a':
-        angle -= 5
+        angle -= 50
         print ("Left")
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
