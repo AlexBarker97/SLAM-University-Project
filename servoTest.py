@@ -33,7 +33,7 @@ while True:
         #p.ChangeDutyCycle(duty)
         print ("Centre")
     elif key.upper() == 'R':
-        angle = 1000
+        angle = 312980
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
         print ("Right")
