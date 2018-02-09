@@ -6,15 +6,15 @@ tilt = 18
 
 initio.init()
 
-def setServoPos(angle):
-    p.ChangeDutyCycle(angle)
-    print(angle)
-
 #def doServos():
-    #initio.setServo((((pan+90)/180)+1), pVal)
-    #initio.setServo(tilt, tVal)
-
+#    initio.setServo(pan, pVal)
+#    initio.setServo(tilt, tVal)
+  
 gpio.setmode(gpio.BOARD)
+gpio.setup(L1, gpio.OUT)
+gpio.setup(L2, gpio.OUT)
+gpio.setup(R1, gpio.OUT)
+gpio.setup(R2, gpio.OUT)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(61)
@@ -22,43 +22,38 @@ gpio.setup(tilt, gpio.OUT)
 t = gpio.PWM(tilt, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 t.start(61)
 
-duty = 0
-angle = 0
+tilt = 61
+duty = 61
 
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
     if key == ' ':
-        angle = 61
-        setServoPos(angle)
-        #p.ChangeDutyCycle(duty)
-        print ("Centre")
+        duty = 61
+        p.ChangeDutyCycle(duty)
+        print ("Centre: 61")
     elif key.upper() == 'R':
-        angle = 90
-        setServoPos(angle)
-        #p.ChangeDutyCycle(duty)
-        print ("Right")
+        duty = 25
+        p.ChangeDutyCycle(duty)
+        print ("Right 25")
     elif key.upper() == 'L':
-        angle = 0
-        setServoPos(angle)
-        #p.ChangeDutyCycle(duty)
-        print ("Left")
+        duty = 90
+        p.ChangeDutyCycle(duty)
+        print ("Left 90")
     elif key == 'w':
         #tilt += 5
-        print ("Up (commented)", tilt)
+        #print ("Up", tilt)
         #t.ChangeDutyCycle(tilt)
     elif key == 'd':
-        angle -= 5
-        print ("Right")
-        setServoPos(angle)
-        #p.ChangeDutyCycle(duty)
+        duty -= 5
+        p.ChangeDutyCycle(duty)
+        print ("Right", duty)
     elif key == 'a':
-        angle += 5
-        print ("Left")
-        setServoPos(angle)
-        #p.ChangeDutyCycle(duty)
+        duty += 5
+        p.ChangeDutyCycle(duty)
+        print ("Left", duty)
     elif key == 's':
         #tilt -= 5
-        print ("Down, commented", tilt)
+        #print ("Down", tilt)
         #t.ChangeDutyCycle(tilt)
     elif key == 'quit':
         initio.cleanup()
