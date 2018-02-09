@@ -7,8 +7,8 @@ tilt = 18
 initio.init()
 
 def setServoPos(angle):
-    p.ChangeDutyCycle((((angle+90)/180)+1)/20)
-    print((((angle+90)/180)+1))
+    p.ChangeDutyCycle(angle)
+    print(angle)
 
 #def doServos():
     #initio.setServo((((pan+90)/180)+1), pVal)
@@ -33,12 +33,12 @@ while True:
         #p.ChangeDutyCycle(duty)
         print ("Centre")
     elif key.upper() == 'R':
-        angle = 312980
+        angle = 90
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
         print ("Right")
     elif key.upper() == 'L':
-        angle = -90
+        angle = 0
         setServoPos(angle)
         #p.ChangeDutyCycle(duty)
         print ("Left")
