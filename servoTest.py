@@ -23,6 +23,7 @@ t = gpio.PWM(tilt, 50)   # frequency is 500Hz, so each pulse is 2ms wide
 t.start(0)
 
 duty = 0
+angle = 0
 
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
