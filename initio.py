@@ -11,15 +11,12 @@
 #
 #======================================================================
 
-
 #======================================================================
 # General Functions
 #
 # init(). Initialises GPIO pins, switches motors off, etc
 # cleanup(). Sets all motors off and sets GPIO to standard values
-# version(). Returns 1. Invalid until after init() has been called
 #======================================================================
-
 
 #======================================================================
 # Motor Functions
@@ -33,7 +30,6 @@
 # turnreverse(leftSpeed, rightSpeed): Moves backwards in an arc by setting different speeds. 0 <= leftSpeed,rightSpeed <= 100
 #======================================================================
 
-
 #======================================================================
 # IR Sensor Functions
 #
@@ -44,13 +40,6 @@
 # irRightLine(): Returns state of Right IR Line sensor
 #======================================================================
 
-
-#======================================================================
-# UltraSonic Functions
-#
-# getDistance(). Returns the distance in cm to the nearest reflecting object. 0 == no object
-#======================================================================
-
 #======================================================================
 # Servo Functions
 # 
@@ -58,7 +47,6 @@
 # stop Servos(). terminates the servo background process
 # setServo(Servo, Degrees). Sets the servo to position in degrees -90 to +90
 #======================================================================
-
 
 # Import all necessary libraries
 import RPi.GPIO as GPIO, sys, threading, time, os, subprocess
@@ -126,10 +114,6 @@ def cleanup():
     stop()
     stopServos()
     GPIO.cleanup()
-
-# version(). Returns 1. Invalid until after init() has been called
-def version():
-    return 1
 
 # End of General Functions
 #======================================================================
@@ -202,7 +186,6 @@ def turnReverse(leftSpeed, rightSpeed):
 # End of Motor Functions
 #======================================================================
 
-
 #======================================================================
 # IR Sensor Functions
 #
@@ -242,38 +225,6 @@ def irRightLine():
         return False
     
 # End of IR Sensor Functions
-#======================================================================
-
-
-#======================================================================
-# UltraSonic Functions
-#
-# getDistance(). Returns the distance in cm to the nearest reflecting object. 0 == no object
-def getDistance():
-    GPIO.setup(sonar, GPIO.OUT)
-    # Send 10us pulse to trigger
-    GPIO.output(sonar, True)
-    time.sleep(0.00001)
-    GPIO.output(sonar, False)
-    start = time.time()
-    count=time.time()
-    GPIO.setup(sonar,GPIO.IN)
-    while GPIO.input(sonar)==0 and time.time()-count<0.1:
-        start = time.time()
-    count=time.time()
-    stop=count
-    while GPIO.input(sonar)==1 and time.time()-count<0.1:
-        stop = time.time()
-    # Calculate pulse length
-    elapsed = stop-start
-    # Distance pulse travelled in that time is time
-    # multiplied by the speed of sound (cm/s)
-    distance = elapsed * 34000
-    # That was the distance there and back so halve the value
-    distance = distance / 2
-    return distance
-
-# End of UltraSonic Functions    
 #======================================================================
 
 #======================================================================
@@ -316,4 +267,3 @@ def stopServod():
     global ServosActive
     os.system("sudo pkill -f servod")
     ServosActive = False
-
