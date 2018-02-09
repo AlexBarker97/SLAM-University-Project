@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# servoTest.py
-
 import initio, time, RPi.GPIO as gpio, sys, tty, termios
 
 #Motors
@@ -10,7 +7,7 @@ tilt = 18
 initio.init()
 
 def doServos():
-    initio.setServo(pan, pVal)
+    initio.setServo((((pan+90)/180)+1), pVal)
     #initio.setServo(tilt, tVal)
 
 gpio.setmode(gpio.BOARD)
@@ -21,8 +18,8 @@ gpio.setup(tilt, gpio.OUT)
 t = gpio.PWM(tilt, 50)   # frequency is 500Hz, so each pulse is 2ms wide
 t.start(61)
 
-tilt = 61
-duty = 61
+tVal = 61
+pVal = 61
 
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
