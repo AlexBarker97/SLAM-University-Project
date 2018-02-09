@@ -6,8 +6,8 @@ tilt = 18
 
 initio.init()
 
-def doServos():
-    initio.setServo((((pan+90)/180)+1), pVal)
+#def doServos():
+    #initio.setServo((((pan+90)/180)+1), pVal)
     #initio.setServo(tilt, tVal)
 
 gpio.setmode(gpio.BOARD)
@@ -24,10 +24,8 @@ pVal = 61
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
     if key == ' ':
-        pVal = 61
-        doServos()
-        #duty = 61
-        #p.ChangeDutyCycle(duty)
+        duty = 61
+        p.ChangeDutyCycle(duty)
         print ("Centre: 61")
     elif key.upper() == 'R':
         duty = 25
