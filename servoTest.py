@@ -4,18 +4,14 @@
 import initio, time, RPi.GPIO as gpio, sys, tty, termios
 
 #Motors
-L1 = 19
-L2 = 21
-R1 = 24
-R2 = 26
 pan = 22
-tilt = 23
+tilt = 18
 
 initio.init()
 
-#def doServos():
-#    initio.setServo(pan, pVal)
-#    initio.setServo(tilt, tVal)
+def doServos():
+    initio.setServo(pan, pVal)
+    initio.setServo(tilt, tVal)
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(L1, gpio.OUT)
@@ -35,8 +31,10 @@ duty = 61
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
     if key == ' ':
-        duty = 61
-        p.ChangeDutyCycle(duty)
+        pVal = 61
+        doServos()
+        #duty = 61
+        #p.ChangeDutyCycle(duty)
         print ("Centre: 61")
     elif key.upper() == 'R':
         duty = 25
