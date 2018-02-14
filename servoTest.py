@@ -7,7 +7,7 @@ initio.init()
   
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
-p = gpio.PWM(pan, 50)
+p = gpio.PWM(pan, 500)
 duty = 50
 p.start(duty)
 
