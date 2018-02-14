@@ -26,7 +26,7 @@ gpio.setup(R2, gpio.OUT)
 gpio.setup(pan, gpio.OUT)
 
 
-p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
+p = gpio.PWM(pan, 666)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(50) # start it at 50% - should be centre of servo
 #p.ChangeDutyCycle(100)
 
