@@ -1,18 +1,11 @@
-import initio, time, RPi.GPIO as gpio, sys, tty, termios, numpy as np, matplotlib.pyplot as plt, serial, binascii
-
-def setServoPos(angle):
-    p.ChangeDutyCycle((((angle+90)/180)+1)/20)
-    print((((angle+90)/180)+1))
-
-initio.init()
+import time, RPi.GPIO as gpio, numpy as np, matplotlib.pyplot as plt, serial, binascii
 
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
-p = gpio.PWM(22, 50) #frequency is 50Hz, so each period is 20ms wide, pulse is from 1ms to 2ms
-angle = 90 #initial centre angle
-p.start(angle) 
-setServoPos(angle)
+p = gpio.PWM(22, 366)
+duty = 90
+p.start(duty)
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "4": 4,  "5": 5,  "6": 6,  "7": 7,
@@ -49,13 +42,13 @@ while True:
         value = 0
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
-        angle -= 1
-        setServoPos(angle)
-        if angle >= -89:
-            print(angle)
+        duty -= 1
+        p.ChangeDutyCycle(duty)
+        if duty >= 20:
+            print(duty)
             print(value)
             r.append(value)
-            theta.append(angle)
+            theta.append(duty)
         else:
             break
     else:
