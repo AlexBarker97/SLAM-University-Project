@@ -7,6 +7,7 @@ gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 366)
 duty = 50
+p.start(duty)
 
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
