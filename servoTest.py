@@ -1,4 +1,4 @@
-import initio, RPi.GPIO as gpio, sys, tty, termios
+import RPi.GPIO as gpio
 
 #pins
 pan = 22
