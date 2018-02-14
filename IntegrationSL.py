@@ -49,7 +49,7 @@ while True:
             print(value)
             r.append(value)
             theta.append(duty)
-            time.sleep(0.1)
+            time.sleep(0.5)
             p.stop()
         else:
             break
