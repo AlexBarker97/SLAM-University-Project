@@ -43,14 +43,14 @@ while True:
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         duty -= 1
-        p.start(duty)
+        p.stop()
         if duty >= 20:
             print(duty)
             print(value)
             r.append(value)
             theta.append(duty)
             time.sleep(0.5)
-            p.stop()
+            p.start(duty)
         else:
             break
     else:
