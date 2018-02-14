@@ -11,10 +11,6 @@ initio.init()
 #    initio.setServo(tilt, tVal)
   
 gpio.setmode(gpio.BOARD)
-gpio.setup(L1, gpio.OUT)
-gpio.setup(L2, gpio.OUT)
-gpio.setup(R1, gpio.OUT)
-gpio.setup(R2, gpio.OUT)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 500)   # frequency is 500Hz, so each pulse is 2ms wide
 p.start(61)
@@ -32,29 +28,21 @@ while True:
         p.ChangeDutyCycle(duty)
         print ("Centre: 61")
     elif key.upper() == 'R':
-        duty = 25
+        duty = 0
         p.ChangeDutyCycle(duty)
         print ("Right 25")
     elif key.upper() == 'L':
-        duty = 90
+        duty = 100
         p.ChangeDutyCycle(duty)
         print ("Left 90")
-    elif key == 'w':
-        #tilt += 5
-        #print ("Up", tilt)
-        #t.ChangeDutyCycle(tilt)
-    elif key == 'd':
+    elif ((key == 'd') and (duty >= 5)):
         duty -= 5
         p.ChangeDutyCycle(duty)
         print ("Right", duty)
-    elif key == 'a':
+    elif ((key == 'a') and (duty <= 95)):
         duty += 5
         p.ChangeDutyCycle(duty)
         print ("Left", duty)
-    elif key == 's':
-        #tilt -= 5
-        #print ("Down", tilt)
-        #t.ChangeDutyCycle(tilt)
     elif key == 'quit':
         initio.cleanup()
         break
