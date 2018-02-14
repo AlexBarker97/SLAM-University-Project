@@ -1,8 +1,8 @@
-import RPi.GPIO as gpio, sys, tty, termios
+import initio, RPi.GPIO as gpio, sys, tty, termios
 
 #pins
 pan = 22
-  
+
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
 p = gpio.PWM(pan, 666.7)
