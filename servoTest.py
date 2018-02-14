@@ -5,7 +5,7 @@ pan = 22
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
-p = gpio.PWM(pan, 666.7)
+p = gpio.PWM(pan, 366)
 duty = 50
 
 while True:
@@ -17,12 +17,12 @@ while True:
         print ("Centre")
         p.stop()
     elif key.upper() == 'R':
-        duty = 100
+        duty = 75
         p.ChangeDutyCycle(duty)
         print ("Right")
         p.stop()
     elif key.upper() == 'L':
-        duty = 0
+        duty = 25
         p.ChangeDutyCycle(duty)
         print ("Left")
         p.stop()
