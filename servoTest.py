@@ -34,6 +34,7 @@ while True:
         p.ChangeDutyCycle(duty)
         print ("Left", duty)
     elif key == 'quit':
+        p.stop()
         initio.cleanup()
         break
     else:
