@@ -4,7 +4,7 @@ gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
 p = gpio.PWM(22, 366)
-duty = 90
+duty = 80
 p.start(duty)
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
@@ -28,7 +28,10 @@ r = []
 theta = []
 
 while True:
+    p.stop()
+    time.sleep(1)
     result = binascii.hexlify(ser.read(8))
+    binascii.hexlify(ser.read(8))
     result = str(result)
     res0 = hex2dec[result[2]]
     res1 = hex2dec[result[3]]
@@ -39,15 +42,13 @@ while True:
     res6 = hex2dec[result[8]]
     res7 = hex2dec[result[9]]
     if ((str(res0) == "5") and (str(res1) == "4")):
-        time.sleep(2)
-        p.ChangeFrequency(366)
+        time.sleep(1)
+        p = gpio.PWM(22, 366)
         p.start(duty)
         value = 0
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         duty -= 2
-        p.stop()
-        time.sleep(1)
         if duty >= 20:
             print(duty)
             print(value)
