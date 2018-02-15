@@ -72,4 +72,4 @@ ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
 ax.grid(True)
 from io import BytesIO
 f = BytesIO()
-plt.savefig(f, format="svg")
+plt.show()
