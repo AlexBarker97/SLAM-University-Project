@@ -49,7 +49,8 @@ while True:
             print(value)
             r.append(value)
             theta.append(duty)
-            time.sleep(0.5)
+            time.sleep(1)
+            p.ChangeFrequency(366)
             p.start(duty)
         else:
             break
