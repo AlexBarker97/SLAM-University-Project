@@ -4,7 +4,7 @@ gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
 p = gpio.PWM(22, 366)
-duty = 80
+duty = 90
 p.start(duty)
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
@@ -41,7 +41,7 @@ while True:
     if ((str(res0) == "5") and (str(res1) == "4")):
         duty -= 1        
         p.ChangeDutyCycle(duty)
-        if duty >= 20:
+        if duty >= 10:
             value = 0
             value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
             value = value/4250
@@ -62,7 +62,7 @@ while True:
         ser.open()
         ser.write(bytes('P', 'UTF-8'))
         ser.write(bytes('T', 'UTF-8'))
-for x in range(0, 70):
+for x in range(0, 80):
     print(r[x],theta[x])
 #ax = plt.subplot(111, projection='polar')
 #ax.plot(theta, r)
