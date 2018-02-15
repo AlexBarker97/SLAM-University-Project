@@ -39,7 +39,7 @@ while True:
     res6 = hex2dec[result[8]]
     res7 = hex2dec[result[9]]
     if ((str(res0) == "5") and (str(res1) == "4")):
-        time.sleep(0.5)
+        time.sleep(2)
         p.ChangeFrequency(366)
         p.start(duty)
         value = 0
@@ -47,6 +47,7 @@ while True:
         value = value/4250
         duty -= 2
         p.stop()
+        time.sleep(1)
         if duty >= 20:
             print(duty)
             print(value)
