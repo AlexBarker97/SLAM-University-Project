@@ -27,22 +27,31 @@ gpio.setup(pan, gpio.OUT)
 
 
 p = gpio.PWM(pan, 366)   # frequency is 500Hz, so each pulse is 2ms wide
-p.start(50) # start it at 50% - should be centre of servo
+
 #p.ChangeDutyCycle(100)
 
 # main loop
 try:
     while True:
+        p.start(50)
         p.ChangeDutyCycle(50)
         print ('Centre')
         time.sleep(3)
+        p.stop()
+        time.sleep(3)
+        p.start(25)
         p.ChangeDutyCycle(25)
         print ('Left')
         time.sleep(3)
+        p.stop()
+        time.sleep(3)
+        p.start(75)
         p.ChangeDutyCycle(75)
         print ('Right')
         time.sleep(3)
-
+        p.stop()
+        time.sleep(3)
+        
 except KeyboardInterrupt:
     print()
 
