@@ -63,9 +63,9 @@ while True:
 for x in range(0, 80):
     print(r[x],theta[x])
 
-ax = plt.subplot(111, projection='polar')
-ax.plot(theta, r)
-ax.set_rmax(100)
-ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
-ax.grid(True)
-plt.show()
+#ax = plt.subplot(111, projection='polar')
+#ax.plot(theta, r)
+#ax.set_rmax(100)
+#ax.set_rlabel_position(-22.5)  # get radial labels away from plotted line
+#ax.grid(True)
+#plt.show()
