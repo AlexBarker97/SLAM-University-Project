@@ -32,10 +32,10 @@ while True:
         p.ChangeDutyCycle(hduty)
     elif ((key == 'w') and (hduty >= 5)):
         vduty -= 5
-        p.ChangeDutyCycle(vduty)
+        t.ChangeDutyCycle(vduty)
     elif ((key == 's') and (vduty <= 95)):
         vduty += 5
-        p.ChangeDutyCycle(vduty)
+        t.ChangeDutyCycle(vduty)
     elif key == 'quit':
         p.stop()
         break  
