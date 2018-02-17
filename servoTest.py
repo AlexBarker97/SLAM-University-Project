@@ -24,16 +24,16 @@ while True:
     elif key.upper() == 'L':
         hduty = 25
         p.ChangeDutyCycle(hduty)
-    elif ((key == 'a') and (duty >= 5)):
+    elif ((key == 'a') and (hduty >= 5)):
         hduty -= 5
         p.ChangeDutyCycle(hduty)
-    elif ((key == 'd') and (duty <= 95)):
+    elif ((key == 'd') and (hduty <= 95)):
         hduty += 5
         p.ChangeDutyCycle(hduty)
-    elif ((key == 'w') and (duty >= 5)):
+    elif ((key == 'w') and (hduty >= 5)):
         vduty -= 5
         p.ChangeDutyCycle(vduty)
-    elif ((key == 's') and (duty <= 95)):
+    elif ((key == 's') and (vduty <= 95)):
         vduty += 5
         p.ChangeDutyCycle(vduty)
     elif key == 'quit':
