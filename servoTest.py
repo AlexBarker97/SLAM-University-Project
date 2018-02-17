@@ -30,15 +30,19 @@ while True:
     elif ((key == 'd') and (hduty <= 95)):
         hduty += 5
         p.ChangeDutyCycle(hduty)
-    elif ((key == 'w') and (hduty >= 5)):
+    elif ((key == 'w') and (vduty >= 10)):
         vduty -= 5
         t.ChangeDutyCycle(vduty)
     elif ((key == 's') and (vduty <= 80)):
         vduty += 5
         t.ChangeDutyCycle(vduty)
     elif key == 'quit':
-        p.stop()
+        vduty = 50
+        hduty = 50
+        t.ChangeDutyCycle(vduty)
+        p.ChangeDutyCycle(hduty)
         t.stop()
+        p.stop()
         break  
     else:
         print("incorrect input")
