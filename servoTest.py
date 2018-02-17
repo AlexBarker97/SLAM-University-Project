@@ -42,4 +42,4 @@ while True:
         break  
     else:
         print("incorrect input")
-    print ("pan: ", hduty,"  tilt: ",vduty)   
+    print ("pan:", hduty," tilt:",vduty)   
