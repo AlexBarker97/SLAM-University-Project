@@ -1,7 +1,7 @@
 import RPi.GPIO as gpio, time
 
 #pins
-pan = 22
+pan = 18
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
