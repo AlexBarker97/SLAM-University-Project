@@ -37,10 +37,6 @@ while True:
         vduty += 5
         t.ChangeDutyCycle(vduty)
     elif key == 'quit':
-        vduty = 50
-        hduty = 50
-        t.ChangeDutyCycle(vduty)
-        p.ChangeDutyCycle(hduty)
         t.stop()
         p.stop()
         break  
