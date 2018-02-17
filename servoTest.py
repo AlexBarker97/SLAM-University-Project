@@ -2,37 +2,43 @@ import RPi.GPIO as gpio, time
 
 #pins
 pan = 18
+tilt = 22
 
 gpio.setmode(gpio.BOARD)
 gpio.setup(pan, gpio.OUT)
+gpio.setup(tilt, gpio.OUT)
 p = gpio.PWM(pan, 366)
-duty = 50
-p.start(duty)
+t = gpio.PWM(tilt, 366)
+vduty = 50
+hduty = 50
+p.start(hduty)
+t.start(vduty)
 
 while True:
     key = input("Use W=Up, S-Down, A-Left, D-Right, Space=Centre, 'quit','L','R'")
     if key == ' ':
-        duty = 50
-        p.ChangeDutyCycle(duty)
-        print ("Centre")
+        hduty = 50
     elif key.upper() == 'R':
-        duty = 75
-        p.ChangeDutyCycle(duty)
-        print ("Right")
+        hduty = 75
+        p.ChangeDutyCycle(hduty)
     elif key.upper() == 'L':
-        duty = 25
-        p.ChangeDutyCycle(duty)
-        print ("Left")
+        hduty = 25
+        p.ChangeDutyCycle(hduty)
     elif ((key == 'a') and (duty >= 5)):
-        duty -= 5
-        p.ChangeDutyCycle(duty)
-        print ("Right", duty)
+        hduty -= 5
+        p.ChangeDutyCycle(hduty)
     elif ((key == 'd') and (duty <= 95)):
-        duty += 5
-        p.ChangeDutyCycle(duty)
-        print ("Left", duty)
+        hduty += 5
+        p.ChangeDutyCycle(hduty)
+    elif ((key == 'w') and (duty >= 5)):
+        vduty -= 5
+        p.ChangeDutyCycle(vduty)
+    elif ((key == 's') and (duty <= 95)):
+        vduty += 5
+        p.ChangeDutyCycle(vduty)
     elif key == 'quit':
         p.stop()
         break
+    print ("pan: ", hduty,"  tilt: ",vduty)     
     else:
         print("incorrect input")
