@@ -38,7 +38,7 @@ while True:
         p.ChangeDutyCycle(vduty)
     elif key == 'quit':
         p.stop()
-        break
-    print ("pan: ", hduty,"  tilt: ",vduty)     
+        break  
     else:
         print("incorrect input")
+    print ("pan: ", hduty,"  tilt: ",vduty)   
