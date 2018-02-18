@@ -1,20 +1,5 @@
 import time, RPi.GPIO as gpio, numpy as np, matplotlib.pyplot as plt, serial, binascii, threading
 
-global r
-global theta
-global duty
-global p
-
-gpio.setwarnings(False)
-gpio.setmode(gpio.BOARD)
-
-r = []
-theta = []
-gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
-p = gpio.PWM(22, 366)
-duty = 90
-p.start(duty)
-
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "4": 4,  "5": 5,  "6": 6,  "7": 7,
            "8": 8,  "9": 9,  "a": 10, "b": 11,
@@ -40,6 +25,11 @@ def lidarReadings():
         value = value/4250
     
 def setDuty():
+    global duty
+    global p
+    p = gpio.PWM(22, 366)
+    duty = 90
+    p.start(duty)
     while True:
         duty -= 1
         p.ChangeDutyCycle(duty)
@@ -52,6 +42,16 @@ def setDuty():
             break
     for x in range(0, 80):
         print(r[x],theta[x])
+
+
+global r
+global theta
+r = []
+theta = []
+
+gpio.setwarnings(False)
+gpio.setmode(gpio.BOARD)
+gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
 
 while True:       
     ser = serial.Serial()
