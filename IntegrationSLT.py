@@ -21,13 +21,13 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "c": 12, "d": 13, "e": 14, "f": 15}
 
 def lidarReadings():
+    global value
+    global res0
+    global res1
     while True:
-        global value
         value = 0
         result = binascii.hexlify(ser.read(8))
         result = str(result)
-        global res0
-        global res1
         res0 = hex2dec[result[2]]
         res1 = hex2dec[result[3]]
         res2 = hex2dec[result[4]]
@@ -76,9 +76,9 @@ while True:
     res6 = hex2dec[result[8]]
     res7 = hex2dec[result[9]]
     if ((str(res0) == "5") and (str(res1) == "4")):
-        thread1 = threading.Thread(target=lidarReadings())
+        thread1 = threading.Thread(target=lidarReadings)
         thread1.start()
-        thread2 = threading.Thread(target=setDuty())
+        thread2 = threading.Thread(target=setDuty)
         thread2.start()
         break
     else:
