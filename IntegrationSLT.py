@@ -20,7 +20,7 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "8": 8,  "9": 9,  "a": 10, "b": 11,
            "c": 12, "d": 13, "e": 14, "f": 15}
 
-def setup():
+def process():
     while True:       
         ser = serial.Serial()
         ser.close()
@@ -44,9 +44,9 @@ def setup():
         res6 = hex2dec[result[8]]
         res7 = hex2dec[result[9]]
         if ((str(res0) == "5") and (str(res1) == "4")):
-            thread1 = threading.Thread(target=lidarReadings)
+            thread1 = threading.Thread(target=lidarReadings())
             thread1.start()
-            thread2 = threading.Thread(target=setDuty)
+            thread2 = threading.Thread(target=setDuty())
             thread2.start()
             break
         else:
@@ -61,8 +61,8 @@ def setup():
             ser.write(bytes('P', 'UTF-8'))
             ser.write(bytes('T', 'UTF-8'))
             
-setup()
-
+process()
+    
 def lidarReadings():
     while True:
         global value
