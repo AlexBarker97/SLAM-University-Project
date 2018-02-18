@@ -27,6 +27,7 @@ def lidarReadings():
             break
     
 def setDuty():
+    time.sleep(0.2)
     global duty
     global p
     p = gpio.PWM(22, 366)
