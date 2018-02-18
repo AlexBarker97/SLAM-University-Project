@@ -44,9 +44,9 @@ def setup():
         res6 = hex2dec[result[8]]
         res7 = hex2dec[result[9]]
         if ((str(res0) == "5") and (str(res1) == "4")):
-            thread1 = threading.Thread(target=infiniteloop1)
+            thread1 = threading.Thread(target=lidarReadings)
             thread1.start()
-            thread2 = threading.Thread(target=infiniteloop2)
+            thread2 = threading.Thread(target=setDuty)
             thread2.start()
             break
         else:
