@@ -10,7 +10,6 @@ def lidarReadings():
     global res0
     global res1
     while True:
-        value = 0
         result = binascii.hexlify(ser.read(8))
         result = str(result)
         res0 = hex2dec[result[2]]
@@ -21,6 +20,7 @@ def lidarReadings():
         res5 = hex2dec[result[7]]
         res6 = hex2dec[result[8]]
         res7 = hex2dec[result[9]]
+        value = 0
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         if duty <= 9:
