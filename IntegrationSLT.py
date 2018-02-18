@@ -21,18 +21,18 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "c": 12, "d": 13, "e": 14, "f": 15}
 
 def setup():
-    ser = serial.Serial()
-    ser.close()
-    ser.port = '/dev/ttyUSB0'
-    ser.baudrate = 115200
-    ser.parity = serial.PARITY_NONE
-    ser.stopbits = serial.STOPBITS_ONE
-    ser.bytesize = serial.EIGHTBITS
-    ser.timeout = 10
-    ser.open()
-    ser.write(bytes('P', 'UTF-8'))
-    ser.write(bytes('T', 'UTF-8'))
-    while True:
+    while True:       
+        ser = serial.Serial()
+        ser.close()
+        ser.port = '/dev/ttyUSB0'
+        ser.baudrate = 115200
+        ser.parity = serial.PARITY_NONE
+        ser.stopbits = serial.STOPBITS_ONE
+        ser.bytesize = serial.EIGHTBITS
+        ser.timeout = 10
+        ser.open()
+        ser.write(bytes('P', 'UTF-8'))
+        ser.write(bytes('T', 'UTF-8'))
         result = binascii.hexlify(ser.read(8))
         result = str(result)
         res0 = hex2dec[result[2]]
@@ -48,6 +48,18 @@ def setup():
             thread1.start()
             thread2 = threading.Thread(target=infiniteloop2)
             thread2.start()
+            break
+        else:
+            ser.close()
+            ser.port = '/dev/ttyUSB0'
+            ser.baudrate = 115200
+            ser.parity = serial.PARITY_NONE
+            ser.stopbits = serial.STOPBITS_ONE
+            ser.bytesize = serial.EIGHTBITS
+            ser.timeout = 10
+            ser.open()
+            ser.write(bytes('P', 'UTF-8'))
+            ser.write(bytes('T', 'UTF-8'))
             
 setup()
 
@@ -72,31 +84,17 @@ def lidarReadings():
     
 def setDuty():
     while True:
-        if ((str(res0) == "5") and (str(res1) == "4")):
         duty -= 1
         p.ChangeDutyCycle(duty)
         if duty >= 10:
             value = 0
-            value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
-            value = value/4250
             r.append(value)
             theta.append(duty)
+            time.sleep(0.1)
         else:
             break
-                      
-    else:
-        ser.close()
-        ser.port = '/dev/ttyUSB0'
-        ser.baudrate = 115200
-        ser.parity = serial.PARITY_NONE
-        ser.stopbits = serial.STOPBITS_ONE
-        ser.bytesize = serial.EIGHTBITS
-        ser.timeout = 10
-        ser.open()
-        ser.write(bytes('P', 'UTF-8'))
-        ser.write(bytes('T', 'UTF-8'))
-for x in range(0, 80):
-    print(r[x],theta[x])
+    for x in range(0, 80):
+        print(r[x],theta[x])
 
 #ax = plt.subplot(111, projection='polar')
 #ax.plot(theta, r)
