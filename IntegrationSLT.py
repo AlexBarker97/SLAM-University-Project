@@ -35,7 +35,7 @@ def setDuty():
     p.start(duty)
     while True:
         duty -= 1
-        p.ChangeDutyCycle(duty(1/20))
+        p.ChangeDutyCycle(duty/(1/20))
         if duty >= 10:
             r.append(value)
             theta.append(duty)
