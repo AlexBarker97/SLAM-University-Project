@@ -31,11 +31,11 @@ def setDuty():
     global p
     duty = 90
     time.sleep(0.2)
-    p = gpio.PWM(18, 366)
+    p = gpio.PWM(18, 50)
     p.start(duty)
     while True:
         duty -= 1
-        p.ChangeDutyCycle(duty)
+        p.ChangeDutyCycle(duty(1/20))
         if duty >= 10:
             r.append(value)
             theta.append(duty)
