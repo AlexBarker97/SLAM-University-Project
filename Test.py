@@ -42,7 +42,7 @@ def setDuty():
             time.sleep(0.1)
         else:
             break
-    for x in range(0, 80):
+    for x in range(0, len(r)-1):
         print(r[x],theta[x])
 
 global r
