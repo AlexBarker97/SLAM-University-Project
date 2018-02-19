@@ -54,7 +54,7 @@ theta = []
 
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
-gpio.setup(22, gpio.OUT) #pin 22 (panservo) set to output
+gpio.setup(18, gpio.OUT) #pin 18 (panservo) set to output
 
 while True:       
     ser = serial.Serial()
