@@ -31,7 +31,7 @@ def setDuty():
     global p
     duty = 5
     time.sleep(0.2)
-    p = gpio.PWM(18, 50)
+    p = gpio.PWM(18, 500)
     p.start(duty)
     while True:
         duty += 1/20
