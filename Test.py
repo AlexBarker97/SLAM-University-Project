@@ -23,20 +23,20 @@ def lidarReadings():
         value = 0
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
-        if duty <= 9:
+        if duty >= 10:
             break
     
 def setDuty():
     global duty
     global p
-    duty = 90
+    duty = 5
     time.sleep(0.2)
-    p = gpio.PWM(18, 366)
+    p = gpio.PWM(18, 50)
     p.start(duty)
     while True:
-        duty -= 1
+        duty += 1/20
         p.ChangeDutyCycle(duty)
-        if duty >= 10:
+        if duty <= 10:
             r.append(value)
             theta.append(duty)
             time.sleep(0.1)
