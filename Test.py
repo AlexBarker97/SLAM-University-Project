@@ -45,7 +45,6 @@ def setDuty():
     for x in range(0, 80):
         print(r[x],theta[x])
 
-
 global r
 global theta
 r = []
