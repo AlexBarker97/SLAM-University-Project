@@ -17,8 +17,8 @@ def Output():
         else:
             x.append(r[i]*math.sin(theta[i]-90))
             y.append(r[i]*math.cos(theta[i]-90))
-        i += 1
         print(x[i],y[i])
+        i += 1
 
 def lidarReadings():
     global value
