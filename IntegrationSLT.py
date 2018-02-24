@@ -1,4 +1,4 @@
-import time, RPi.GPIO as gpio, numpy as np, matplotlib.pyplot as plt,matplotlib, serial, binascii, threading, math
+import time, RPi.GPIO as gpio, numpy as np, matplotlib.pyplot,matplotlib, serial, binascii, threading, math
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "4": 4,  "5": 5,  "6": 6,  "7": 7,
@@ -19,8 +19,8 @@ def Output():
         print(x[i],y[i])
         i += 1
     matplotlib.use('Agg')
-    plt.scatter(x, y)
-    plt.savefig('map.png')
+    matplotlib.pyplot.scatter(x, y)
+    matplotlib.pyplot.savefig('map.png')
 
 def lidarReadings():
     global value
