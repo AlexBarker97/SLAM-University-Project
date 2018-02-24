@@ -10,7 +10,6 @@ def Output():
     y=[]
     i=0
     while i < len(theta):
-        print(i)
         if theta[i] < 90:
             x.append((-r[i])*math.cos(theta[i]))
             y.append(r[i]*math.sin(theta[i]))
