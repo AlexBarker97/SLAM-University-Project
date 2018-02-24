@@ -11,11 +11,11 @@ def Output():
     i=0
     while i < len(theta):
         if theta[i] < 90:
-            x.append((-r[i])*math.cos(theta[i]))
-            y.append(r[i]*math.sin(theta[i]))
+            x.append((-r[i])*(math.cos(theta[i]*math.pi/180)))
+            y.append(r[i]*(math.sin(theta[i]*math.pi/180)))
         else:
-            x.append(r[i]*math.sin(theta[i]-90))
-            y.append(r[i]*math.cos(theta[i]-90))
+            x.append(r[i]*math.sin((theta[i]-90)*math.pi/180))
+            y.append(r[i]*math.cos((theta[i]-90)*math.pi/180))
         print(x[i],y[i])
         i += 1
 
