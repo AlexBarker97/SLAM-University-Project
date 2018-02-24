@@ -39,6 +39,8 @@ def lidarReadings():
         value = value/4250
         if duty <= 9:
             Output()
+            plt.scatter(x, y)
+            plt.savefig('map.png')
             break
     
 def setDuty():
