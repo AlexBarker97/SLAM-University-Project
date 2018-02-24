@@ -19,7 +19,7 @@ def Output():
         print(x[i],y[i])
         i += 1
     plt.scatter(x, y)
-    plt.savefig('map.png')
+    plt.savefig('map.png',block=True)
 
 def lidarReadings():
     global value
