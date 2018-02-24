@@ -18,6 +18,8 @@ def Output():
             y.append(r[i]*math.cos((theta[i]-90)*math.pi/180))
         print(x[i],y[i])
         i += 1
+    plt.scatter(x, y)
+    plt.savefig('map.png')
 
 def lidarReadings():
     global value
@@ -39,8 +41,6 @@ def lidarReadings():
         value = value/4250
         if duty <= 9:
             Output()
-            plt.scatter(x, y)
-            plt.savefig('map.png')
             break
     
 def setDuty():
