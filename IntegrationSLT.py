@@ -1,4 +1,4 @@
-import time, RPi.GPIO as gpio, numpy as np, matplotlib.pyplot as plt, serial, binascii, threading
+import time, RPi.GPIO as gpio, numpy as np, matplotlib.pyplot as plt, serial, binascii, threading, math
 
 hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "4": 4,  "5": 5,  "6": 6,  "7": 7,
@@ -42,9 +42,6 @@ def setDuty():
             time.sleep(0.1)
         else:
             break
-    for x in range(0, 80):
-        print(r[x],theta[x])
-
 
 global r
 global theta
@@ -94,7 +91,20 @@ while True:
         ser.open()
         ser.write(bytes('P', 'UTF-8'))
         ser.write(bytes('T', 'UTF-8'))
-        
+
+x=[]
+y=[]
+i=0
+while i < len(theta):
+    print(i)
+    if theta[i] < 90:
+        x.append((-r[i])*math.cos(theta[i]))
+        y.append(r[i]*math.sin(theta[i]))
+    else:
+        x.append(r[i]*math.sin(theta[i]-90))
+        y.append(r[i]*math.cos(theta[i]-90))
+    i += 1
+    print(x[i],y[i])
 
 #ax = plt.subplot(111, projection='polar')
 #ax.plot(theta, r)
