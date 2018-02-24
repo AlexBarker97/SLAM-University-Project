@@ -5,6 +5,21 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "8": 8,  "9": 9,  "a": 10, "b": 11,
            "c": 12, "d": 13, "e": 14, "f": 15}
 
+def Output():
+    x=[]
+    y=[]
+    i=0
+    while i < len(theta):
+        print(i)
+        if theta[i] < 90:
+            x.append((-r[i])*math.cos(theta[i]))
+            y.append(r[i]*math.sin(theta[i]))
+        else:
+            x.append(r[i]*math.sin(theta[i]-90))
+            y.append(r[i]*math.cos(theta[i]-90))
+        i += 1
+        print(x[i],y[i])
+
 def lidarReadings():
     global value
     global res0
@@ -25,6 +40,7 @@ def lidarReadings():
         value = value/4250
         if duty <= 9:
             break
+            Output()
     
 def setDuty():
     global duty
@@ -91,20 +107,6 @@ while True:
         ser.open()
         ser.write(bytes('P', 'UTF-8'))
         ser.write(bytes('T', 'UTF-8'))
-
-x=[]
-y=[]
-i=0
-while i < len(theta):
-    print(i)
-    if theta[i] < 90:
-        x.append((-r[i])*math.cos(theta[i]))
-        y.append(r[i]*math.sin(theta[i]))
-    else:
-        x.append(r[i]*math.sin(theta[i]-90))
-        y.append(r[i]*math.cos(theta[i]-90))
-    i += 1
-    print(x[i],y[i])
 
 #ax = plt.subplot(111, projection='polar')
 #ax.plot(theta, r)
