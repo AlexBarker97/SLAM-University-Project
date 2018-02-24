@@ -18,7 +18,7 @@ def Output():
             y.append(r[i]*math.cos((theta[i]-90)*math.pi/180))
         print(x[i],y[i])
         i += 1
-    plt.use('Agg')
+    matplotlib.use('Agg')
     plt.scatter(x, y)
     plt.savefig('map.png')
 
