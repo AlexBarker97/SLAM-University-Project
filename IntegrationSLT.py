@@ -39,8 +39,8 @@ def lidarReadings():
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         if duty <= 9:
-            break
             Output()
+            break
     
 def setDuty():
     global duty
