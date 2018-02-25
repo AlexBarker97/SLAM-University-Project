@@ -7,7 +7,7 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
            "8": 8,  "9": 9,  "a": 10, "b": 11,
            "c": 12, "d": 13, "e": 14, "f": 15}
 
-def Output():
+def Mapping():
     x=[]
     y=[]
     i=0
@@ -42,7 +42,7 @@ def lidarReadings():
         value = value + (res2*(16**5)) + (res3*(16**4)) + (res4*(16**3)) + (res5*(16**2)) + (res6*(16**1)) + (res7*(16**0))
         value = value/4250
         if duty <= 9:
-            Output()
+            Mapping()
             break
     
 def setDuty():
