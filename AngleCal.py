@@ -23,4 +23,4 @@ while True:
     else:
         print("incorrect input")
     p.ChangeDutyCycle(duty)
-    print("Angle =",(((duty-10)*180)/80)"
+    print("Angle =",(((duty-10)*180)/80))
