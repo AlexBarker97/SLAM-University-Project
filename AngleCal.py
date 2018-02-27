@@ -7,7 +7,7 @@ p = gpio.PWM(18, 366)
 duty = 90
 p.start(duty)
 
-While True:
+while True:
     out = input('"0" = Min, "1" = Max, "+" = increase, "-" = decrease')
     if out == "0":
         duty = 10
