@@ -57,7 +57,7 @@ def setDuty():
         p.ChangeDutyCycle(duty)
         if duty >= 10:
             r.append(value)
-            theta.append(((duty-10)*180)/88)
+            theta.append(((duty-10)*180)/80)
             time.sleep(0.1)
         else:
             break
