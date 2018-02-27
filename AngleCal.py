@@ -10,9 +10,9 @@ p.start(duty)
 while True:
     out = input('"0" = Min, "1" = Max, "+" = increase, "-" = decrease: ')
     if out == "0":
-        duty = 10
+        duty = 16
     elif out == "1":
-        duty = 90
+        duty = 81
     elif out == "+":
         duty += 1
     elif out == "-":
