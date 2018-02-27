@@ -8,7 +8,7 @@ duty = 90
 p.start(duty)
 
 while True:
-    out = input('"0" = Min, "1" = Max, "+" = increase, "-" = decrease')
+    out = input('"0" = Min, "1" = Max, "+" = increase, "-" = decrease: ')
     if out == "0":
         duty = 10
     elif out == "1":
@@ -23,4 +23,4 @@ while True:
     else:
         print("incorrect input")
     p.ChangeDutyCycle(duty)
-    print("Angle =",(((duty-10)*180)/80))
+    print("Angle =",(((duty-10)*180)/80)," Duty =",duty)
