@@ -48,16 +48,16 @@ def lidarReadings():
 def setDuty():
     global duty
     global p
-    duty = 90
+    duty = 80
     time.sleep(0.2)
     p = gpio.PWM(18, 366)
     p.start(duty)
     while True:
         duty -= 1
         p.ChangeDutyCycle(duty)
-        if duty >= 10:
+        if duty >= 18:
             r.append(value)
-            theta.append(((duty-10)*180)/80)
+            theta.append(((duty-10)*180)/62)
             time.sleep(0.1)
         else:
             break
