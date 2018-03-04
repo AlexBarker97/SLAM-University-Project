@@ -1,3 +1,5 @@
+#Used to calibrate the servo motor, setting PWM through duty value and observing angle this represents practically
+
 import time, RPi.GPIO as gpio, numpy as np, matplotlib, serial, binascii, threading, math
 
 gpio.setwarnings(False)
