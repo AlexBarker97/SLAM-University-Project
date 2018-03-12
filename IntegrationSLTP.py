@@ -12,10 +12,11 @@ def Mapping():
     y=[]
     xr=0
     yr=0
+    thetar=0
     i=0
     while i < len(theta):
-        x.append((r[i]*(math.sin((theta[i]-90)*math.pi/180))+xr)
-        y.append((r[i]*(math.cos((theta[i]-90)*math.pi/180))+yr)
+        x.append((r[i]*(math.sin((thetar+theta[i]-90)*math.pi/180))+xr)
+        y.append((r[i]*(math.cos((thetar+theta[i]-90)*math.pi/180))+yr)
         print(x[i],y[i])
         i += 1
     plt.scatter(x, y)
