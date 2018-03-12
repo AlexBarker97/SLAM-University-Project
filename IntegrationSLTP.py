@@ -10,14 +10,12 @@ hex2dec = {"0": 0,  "1": 1,  "2": 2,  "3": 3,
 def Mapping():
     x=[]
     y=[]
+    xr=0
+    yr=0
     i=0
     while i < len(theta):
-        if theta[i] < 90:
-            x.append((-r[i])*(math.cos(theta[i]*math.pi/180)))
-            y.append(r[i]*(math.sin(theta[i]*math.pi/180)))
-        else:
-            x.append(r[i]*math.sin((theta[i]-90)*math.pi/180))
-            y.append(r[i]*math.cos((theta[i]-90)*math.pi/180))
+        x.append((r[i]*(math.sin((theta[i]-90)*math.pi/180))+xr)
+        y.append((r[i]*(math.cos((theta[i]-90)*math.pi/180))+yr)
         print(x[i],y[i])
         i += 1
     plt.scatter(x, y)
