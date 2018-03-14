@@ -21,6 +21,7 @@ def Mapping():
         i += 1
     plt.scatter(x, y)
     plt.savefig('map.png')
+    print("map saved!")
 
 def lidarReadings():
     global value
